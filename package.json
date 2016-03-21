@@ -1,0 +1,19 @@
+{
+  "name": "tera-proxy-game",
+  "version": "0.1.0",
+  "author": "meishu",
+  "description": "Modular event handling through a TERA proxy server.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meishuu/tera-proxy-game.git"
+  },
+  "main": "lib/index.js",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "tera-data": "github:meishuu/tera-data"
+  },
+  "bugs": {
+    "url": "https://github.com/meishuu/tera-proxy-game/issues"
+  },
+  "homepage": "https://github.com/meishuu/tera-proxy-game#readme"
+}
