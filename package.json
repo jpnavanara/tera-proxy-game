@@ -9,6 +9,9 @@
   },
   "main": "lib/index.js",
   "license": "GPL-3.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "dependencies": {
     "tera-data": "github:meishuu/tera-data"
   },
