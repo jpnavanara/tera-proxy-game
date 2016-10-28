@@ -1,22 +1,29 @@
 {
   "name": "tera-proxy-game",
   "version": "0.1.0",
-  "author": "meishu",
   "description": "Modular event handling through a TERA proxy server.",
+  "homepage": "https://github.com/meishuu/tera-proxy-game#readme",
+  "bugs": {
+    "url": "https://github.com/meishuu/tera-proxy-game/issues"
+  },
+  "license": "GPL-3.0",
+  "author": "meishu",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meishuu/tera-proxy-game.git"
   },
-  "main": "lib/index.js",
-  "license": "GPL-3.0",
-  "engines": {
-    "node": ">=6.0.0"
+  "scripts": {
+    "lint": "eslint ."
   },
   "dependencies": {
     "tera-data": "github:meishuu/tera-data"
   },
-  "bugs": {
-    "url": "https://github.com/meishuu/tera-proxy-game/issues"
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-google": "^0.7.0"
   },
-  "homepage": "https://github.com/meishuu/tera-proxy-game#readme"
+  "engines": {
+    "node": ">=6.0.0"
+  }
 }
