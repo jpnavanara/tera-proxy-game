@@ -12,6 +12,7 @@ module.exports = {
     // Stylistic Issues
     'linebreak-style': ['error', 'windows'],
     'max-len': ['warn'],
+    'new-parens': ['error'],
     'object-curly-spacing': ['error', 'always'],
     'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
     'require-jsdoc': ['off'],
