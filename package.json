@@ -17,7 +17,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "tera-data": "github:meishuu/tera-data"
+    "tera-data": "meishuu/tera-data",
+    "tera-data-parser": "meishuu/tera-data-parser-js"
   },
   "devDependencies": {
     "eslint": "^3.8.1",
