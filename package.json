@@ -17,11 +17,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "tera-data": "github:meishuu/tera-data"
+    "binary-search": "^1.3.2",
+    "error-stack-parser": "^2.0.0",
+    "tera-data-parser": "meishuu/tera-data-parser-js"
   },
   "devDependencies": {
     "eslint": "^3.8.1",
     "eslint-config-google": "^0.7.0"
+  },
+  "peerDependencies": {
+    "tera-data": "*"
   },
   "engines": {
     "node": ">=6.0.0"
