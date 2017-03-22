@@ -1,6 +1,6 @@
 {
   "name": "tera-proxy-game",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Modular event handling through a TERA proxy server.",
   "homepage": "https://github.com/meishuu/tera-proxy-game#readme",
   "bugs": {
