@@ -6,7 +6,6 @@ module.exports = {
   'extends': ['eslint:recommended', 'google'],
   'rules': {
     // Possible Errors
-    'no-console': ['off'],
     'valid-jsdoc': ['off'],
 
     // Stylistic Issues
