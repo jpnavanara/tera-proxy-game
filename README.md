@@ -2,7 +2,9 @@
 
 Hosts a TCP proxy server to read, modify, and inject network data between a TERA game client and server. This modular system built on event-based hooks allows for easy creation and usage of script mods.
 
-This document is divided into two section. Most readers are likely viewing this for documentation on writing modules, so the [module reference](#module-reference) will come first. The latter half, the [API reference](#api-reference), details the classes exported by `require('tera-proxy-game')`, which is not needed for module authors.
+This module is primarily intended for use in [`tera-proxy`](https://meishuu.github.io/tera-proxy/).
+
+This document is divided into two sections. Most readers are likely viewing this for documentation on writing modules, so the [module reference](#module-reference) will come first. The latter half, the [API reference](#api-reference), details the classes exported by `require('tera-proxy-game')`, which is not needed for module authors.
 
 # Module Reference
 
@@ -15,7 +17,7 @@ modules[name] = new YourModule(dispatch);
 
 Thus, a loadable module's export must be a constructible function with at least one parameter, which will be an instance of `DispatchWrapper`. Since this function is called with `new`, the context of `this` will be unique to each connection to the proxy allowing support for multiple clients.
 
-For examples, see [TODO](#...).
+For examples, see the [`tera-proxy` developer documentation](https://meishuu.github.io/tera-proxy/developers).
 
 ## `DispatchWrapper`
 
