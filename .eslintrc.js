@@ -3,22 +3,22 @@ module.exports = {
     'node': true,
     'es6': true,
   },
-  'extends': ['eslint:recommended', 'google'],
+  'extends': ['eslint:recommended', 'airbnb-base'],
   'rules': {
-    // Possible Errors
-    'valid-jsdoc': ['off'],
+    /* airbnb-base/best-practices */
+    // allow function param reassignment (used extensively for optional args)
+    'no-param-reassign': ['off'],
 
-    // Stylistic Issues
-    'linebreak-style': ['error', 'windows'],
-    'max-len': ['warn'],
-    'new-parens': ['error'],
-    'object-curly-spacing': ['error', 'always'],
-    'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
-    'require-jsdoc': ['off'],
-    'spaced-comment': ['error', 'always', { 'block': { 'exceptions': ['*'], 'balanced': true } }],
+    /* airbnb-base/style */
+    // allow continue (used in for..of loops)
+    'no-continue': ['off'],
 
-    // ECMAScript 6
-    'arrow-parens': ['error', 'as-needed', { 'requireForBlockBody': true }],
-    'prefer-const': ['error'],
+    // allow generators and iterators
+    'no-restricted-syntax': [
+      'error',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ],
   }
 };
