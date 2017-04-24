@@ -43,7 +43,15 @@ Adds a hook for a packet.
 
  * `order`: A lower number causes this hook to run before hooks with a higher `order`. This defaults to 0, so you can imagine negative values running closer to the source side and positive values running closer to the destination side. This is helpful for modules that way want to examine packets before another module modifies or silences them, or filter to what the receiving side will see by running later than most other hooks.
 
- * `type`: One of `"real"` (default), `"fake"`, or `"all"`. Packets created and sent through `Dispatch` are first routed back through the handler, so you can, for instance, examine only "fake" (generated) packets by making a hook with `type: 'fake'`. Just be extra sure that any packets generated in a `fake` or `all` hook do not generate more in an infinite loop.
+ * `filter`: An object of filters to apply. The hook will not receive any packets which do not match the filter. Each filter is a ternary flag: `true` applies the positive filter, `false` applies it negatively, and `null` disables the filter. All of them are optional.
+
+   * `fake`: Filters "fake" packets—those generated through `Dispatch`. Default: `false` (only allow real packets). If `true`, matches only packets generated through `Dispatch`. **Any hook that receives fake packets must be careful not to create an infinite loop.**
+
+   * `incoming`: Filters packets based on destination. Default: `null` (ignore destination). If `true`, matches only packets sent to the client. If `false`, matches only packets sent to the server.
+
+   * `modified`: Filters packets if they have been altered by a previous hook. Default: `null` (ignore modification status). If `true`, matches only packets modified by previous hooks. If `false`, matches only unmodified packets.
+
+   * `silenced`: Filters packets if they have been silenced by a previous hook. Default: `false` (only allow unsilenced packets). If `true`, matches only packets that have had a previous hook `return false` to prevent the packet from being sent. **Any hook that receives a silenced packet may un-silence the packet by returning `true`.**
 
 `callback` is the callback function for the hook, which receives:
  * For a normal hook (version is not `"raw"`),
@@ -55,7 +63,14 @@ Adds a hook for a packet.
    * `data`: The `Buffer` of the raw message data.
    * `fromServer`: `true` if the message was sent by the server, `false` otherwise.
    * `fake`: `true` if this packet was generated through the proxy, `false` otherwise.
-   * Return value is a `Buffer` of the modified message data to use, or `false` to stop and silence the message. Other return values are ignored. Note that unlike for normal hooks, modifications to the original buffer will be saved and used *regardless of whether you return `true`*.
+   * Return value is a `Buffer` of the modified message data to use, or `false` to stop and silence the message. Other return values are ignored. **Note that unlike for normal hooks, modifications to the original buffer will be saved and used regardless of whether you return `true`.**
+
+The `event` for a normal hook and the `data` for a raw hook also have four properties corresponding to the four filters. Each flag is either `true` or `false`; see the above section on filters for more information.
+
+ * `$fake`
+ * `$incoming`
+ * `$modified`
+ * `$silenced`
 
 Returns an object representing the hook. Its properties are not set in stone and are not meant to be changed, so do not depend on them. If you have a use case where you absolutely need to do something with the properties, please submit a GitHub issue describing it.
 
