@@ -32,8 +32,9 @@ Points to the base `Dispatch` instance. Useful if you want to track something pe
 ### Methods
 
 #### `hook(name, version, [options], callback)`
+#### `hookOnce(name, version, [options], callback)`
 
-Adds a hook for a packet.
+Adds a hook for a packet. The `hookOnce` version will remove the hook after it has run once.
 
 `name` will usually be the name of the message being watched for, such as `"S_LOGIN"`, but it can also be `"*"` to catch all messages. You may also use lowerCamelCase for names, removing all underscores and using lowercase unless the character was originally preceded by an underscore (such as `"sLogin"`).
 
